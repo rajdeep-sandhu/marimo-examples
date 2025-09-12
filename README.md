@@ -1,6 +1,7 @@
 # Marimo Form Validation using Pydantic (Example/Tutorial)
 
 - This demonstrates validating a pydantic form using a validation callback which validates the data against a Pydantic model.
+- At the time of writing, (Sep 2025), there seem to be no tutorials or documentation on using Pydantic with a ui element validation callback.
 
 ## Installation
 
