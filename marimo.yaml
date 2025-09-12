@@ -1,0 +1,4 @@
+# marimo.yaml
+dependencies:
+  - marimo>=0.14.13
+  - pydantic[email]>=2.11.7
