@@ -3,6 +3,8 @@
 - This demonstrates validating a pydantic form using a validation callback which validates the data against a Pydantic model.
 - At the time of writing, (Jul 2025), there seem to be no tutorials or documentation on using Pydantic with a ui element validation callback.
 
+[Try it out.](https://marimo.app/github.com/rajdeep-sandhu/marimo-pydantic-example/blob/main/ui_element_validation.py)
+
 ## Installation
 
 The project is managed using `uv`.
