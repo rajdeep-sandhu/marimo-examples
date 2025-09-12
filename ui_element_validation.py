@@ -127,7 +127,7 @@ def _(mo):
         r"""
     ### Method 1
     - This is commented out and provides an option to validate after data has been entered. In this case, the form will not have a `validate=` callback.
-    - However, this allows the form to emit data which has not been validated and introduces complexity in the form of further checks required before committing the addition, e.g. to a database. 
+    - However, this allows the form to emit data which has not been validated and introduces complexity in the form of further checks required before committing the addition, e.g. to a database.
     """
     )
     return
