@@ -62,6 +62,14 @@ def _(mo):
     - The form data is passed as a dictionary to the `validate=` callback. Therefore, it makes sense to name the batch variables the same as those expected by the `Employee` model, which saves a step in translating the form dictionary into a model readable dictionary.
     - The **Submit** button will not clear the form unless all the inputs are validated completely as per validation rules.
     - The errors returned by the validation callback are displayed in the cell.
+
+    #### Validation Applied
+
+    - Employees must be at least eighteen years old.
+    - IT employees are contractors and don't qualify for benefits.
+    - Email address should match the pattern '.+@example\.com$'.
+    - Salary should be greater than 0.
+    - Department should be populated.
     """
     )
     return
