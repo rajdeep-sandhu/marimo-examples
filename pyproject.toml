@@ -3,6 +3,9 @@ name = "marimo-examples"
 version = "0.1.0"
 description = "Marimo example notebooks."
 readme = "README.md"
+authors = [
+    { name = "Rajdeep Sandhu", email = "168480080+rajdeep-sandhu@users.noreply.github.com" }
+]
 requires-python = ">=3.13"
 dependencies = ["marimo>=0.14.13", "pydantic[email]>=2.11.7"]
 
