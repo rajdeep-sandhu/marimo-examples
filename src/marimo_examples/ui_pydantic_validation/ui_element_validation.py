@@ -10,7 +10,7 @@ def _(mo):
         r"""
     # Form Validation using Pydantic
     - This example demonstrates form validation using a pydantic model, which is defined in `models.py`.
-    > As at creation date (26.07.2025), I could not find tutorials or examples of marimo form falidation using pydantic and a `validation=` callback, hence this example.
+    > As at creation date (26.07.2025), I could not find tutorials or examples of marimo form validation using pydantic and a `validation=` callback, hence this example.
     """
     )
     return
