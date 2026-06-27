@@ -37,7 +37,7 @@ def _():
     import duckdb
     import polars as pl
 
-    return BytesIO, pl
+    return BytesIO, duckdb, pl
 
 
 @app.cell
@@ -97,8 +97,10 @@ def _(
 
 
 @app.cell
-def _(ux_trans: "pl.DataFrame"):
-    ux_trans
+def _(duckdb, upload_result: dict | None, ux_trans: "pl.DataFrame"):
+    if upload_result:
+        conn = duckdb.connect()
+        conn.register("ux_trans", ux_trans)
     return
 
 
