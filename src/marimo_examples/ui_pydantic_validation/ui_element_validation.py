@@ -1,18 +1,16 @@
 import marimo
 
-__generated_with = "0.14.13"
+__generated_with = "0.23.11"
 app = marimo.App(width="medium")
 
 
 @app.cell(hide_code=True)
 def _(mo):
-    mo.md(
-        r"""
+    mo.md(r"""
     # Form Validation using Pydantic
     - This example demonstrates form validation using a pydantic model, which is defined in `models.py`.
     > As at creation date (26.07.2025), I could not find tutorials or examples of marimo form validation using pydantic and a `validation=` callback, hence this example.
-    """
-    )
+    """)
     return
 
 
@@ -23,14 +21,16 @@ def _():
     import marimo as mo
     from pydantic import ValidationError
 
-    from models import Department, Employee
+    from marimo_examples.ui_pydantic_validation.models import Department, Employee
 
     return Department, Employee, ValidationError, mo
 
 
 @app.cell(hide_code=True)
 def _(mo):
-    mo.md(r"""## Define UI elements""")
+    mo.md(r"""
+    ## Define UI elements
+    """)
     return
 
 
@@ -54,8 +54,7 @@ def _(Department, mo):
 
 @app.cell(hide_code=True)
 def _(mo):
-    mo.md(
-        r"""
+    mo.md(r"""
     ## Create a form
     - Create the markdown for the form with variables from the batch created for the form.
     - Create the batch. Assign each element to a variable, which should be the same as that used in the markdown.
@@ -70,8 +69,7 @@ def _(mo):
     - Email address should match the pattern '.+@example\.com$'.
     - Salary should be greater than 0.
     - Department should be populated.
-    """
-    )
+    """)
     return
 
 
@@ -113,7 +111,9 @@ def _(
 
 @app.cell(hide_code=True)
 def _(mo):
-    mo.md(r"""## Display the form""")
+    mo.md(r"""
+    ## Display the form
+    """)
     return
 
 
@@ -125,19 +125,19 @@ def _(employee_detail_form):
 
 @app.cell(hide_code=True)
 def _(mo):
-    mo.md(r"""## Validation""")
+    mo.md(r"""
+    ## Validation
+    """)
     return
 
 
 @app.cell(hide_code=True)
 def _(mo):
-    mo.md(
-        r"""
+    mo.md(r"""
     ### Method 1
     - This is commented out and provides an option to validate after data has been entered. In this case, the form will not have a `validate=` callback.
     - However, this allows the form to emit data which has not been validated and introduces complexity in the form of further checks required before committing the addition, e.g. to a database.
-    """
-    )
+    """)
     return
 
 
@@ -167,12 +167,10 @@ def _():
 
 @app.cell(hide_code=True)
 def _(mo):
-    mo.md(
-        r"""
+    mo.md(r"""
     ### Method 2
     - This is cleaner and more robust, as submission does not complete until all the form data has been validated.
-    """
-    )
+    """)
     return
 
 
