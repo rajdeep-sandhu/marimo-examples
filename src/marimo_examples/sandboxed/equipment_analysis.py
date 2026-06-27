@@ -11,6 +11,8 @@ app = marimo.App(width="full", app_title="Equipment Analysis")
 
 @app.cell
 def _():
+    import marimo as mo
+
     return
 
 
