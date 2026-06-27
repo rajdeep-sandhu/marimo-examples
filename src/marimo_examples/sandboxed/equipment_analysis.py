@@ -1,5 +1,11 @@
 # /// script
-# dependencies = ["marimo"]
+# dependencies = [
+#     "duckdb==1.5.4",
+#     "fastexcel==0.20.2",
+#     "marimo",
+#     "polars[pyarrow]==1.42.0",
+#     "sqlglot==30.12.0",
+# ]
 # requires-python = ">=3.14"
 # ///
 
@@ -22,6 +28,19 @@ def _():
     import marimo as mo
 
     return (mo,)
+
+
+@app.cell
+def _(mo):
+    # Upload equipment data file
+    file_input = mo.ui.file(
+        label="Upload Equipment Transaction Data (`.xlsx`)",
+        filetypes=[".xlsx"],
+        multiple=False,
+    )
+
+    file_input
+    return
 
 
 if __name__ == "__main__":
