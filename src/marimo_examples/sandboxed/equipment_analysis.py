@@ -81,7 +81,19 @@ def _(file_input, file_to_df, pl):
         upload_result = file_to_df(file_input)
         ux_trans_filename: str = upload_result["filename"]
         ux_trans: pl.DataFrame = upload_result["data"]
-    return (ux_trans,)
+    return upload_result, ux_trans, ux_trans_filename
+
+
+@app.cell
+def _(
+    mo,
+    upload_result: dict | None,
+    ux_trans: "pl.DataFrame",
+    ux_trans_filename: str,
+):
+    if upload_result:
+        mo.output.append(mo.vstack([ux_trans_filename, ux_trans]))
+    return
 
 
 @app.cell
