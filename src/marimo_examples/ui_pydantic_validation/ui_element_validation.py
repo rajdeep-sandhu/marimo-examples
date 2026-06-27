@@ -16,14 +16,19 @@ def _(mo):
 
 @app.cell
 def _():
-    from datetime import date
-
     import marimo as mo
+
+    return (mo,)
+
+
+@app.cell
+def _():
+    from datetime import date
     from pydantic import ValidationError
 
     from marimo_examples.ui_pydantic_validation.models import Department, Employee
 
-    return Department, Employee, ValidationError, mo
+    return Department, Employee, ValidationError
 
 
 @app.cell(hide_code=True)
