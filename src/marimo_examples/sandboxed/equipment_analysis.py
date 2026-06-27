@@ -1,0 +1,18 @@
+# /// script
+# dependencies = ["marimo"]
+# requires-python = ">=3.14"
+# ///
+
+import marimo
+
+__generated_with = "0.23.11"
+app = marimo.App(width="full", app_title="Equipment Analysis")
+
+
+@app.cell
+def _():
+    return
+
+
+if __name__ == "__main__":
+    app.run()
