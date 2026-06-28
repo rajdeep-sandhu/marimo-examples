@@ -33,11 +33,12 @@ def _():
 @app.cell
 def _():
     from io import BytesIO
+    from datetime import date
 
     import duckdb
     import polars as pl
 
-    return BytesIO, duckdb, pl
+    return BytesIO, date, duckdb, pl
 
 
 @app.cell
@@ -101,6 +102,36 @@ def _(duckdb, upload_result: dict | None, ux_trans: "pl.DataFrame"):
     if upload_result:
         conn = duckdb.connect()
         conn.register("ux_trans", ux_trans)
+    return
+
+
+@app.cell
+def _(date, mo, ux_trans: "pl.DataFrame"):
+    today: date = date.today()
+    min_trans_date: date = ux_trans["date_extracted"].min()
+    max_trans_date: date = ux_trans["date_extracted"].max()
+
+    # The dataset should not have dates beyond the current date.
+    # Raise an exception if it does.
+    if max_trans_date > today:
+        raise ValueError(
+            f"Dataset contains future transactions: "
+            f"max={max_trans_date:%Y-%m-%d}, today={today:%Y-%m-%d}"
+        )
+
+    start_date_input = mo.ui.date.from_series(
+        ux_trans["date_extracted"], value=min_trans_date
+    )
+
+    end_date_input = mo.ui.date.from_series(
+        ux_trans["date_extracted"], value=max_trans_date
+    )
+    return end_date_input, start_date_input
+
+
+@app.cell
+def _(end_date_input, mo, start_date_input):
+    mo.hstack([start_date_input, end_date_input])
     return
 
 
