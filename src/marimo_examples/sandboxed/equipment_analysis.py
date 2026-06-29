@@ -32,8 +32,8 @@ def _():
 
 @app.cell
 def _():
-    from io import BytesIO
     from datetime import date
+    from io import BytesIO
 
     import duckdb
     import polars as pl
@@ -119,19 +119,19 @@ def _(date, mo, ux_trans: "pl.DataFrame"):
             f"max={max_trans_date:%Y-%m-%d}, today={today:%Y-%m-%d}"
         )
 
-    start_date_input = mo.ui.date.from_series(
+    start_date_picker = mo.ui.date.from_series(
         ux_trans["date_extracted"], value=min_trans_date
     )
 
-    end_date_input = mo.ui.date.from_series(
+    end_date_picker = mo.ui.date.from_series(
         ux_trans["date_extracted"], value=max_trans_date
     )
-    return end_date_input, start_date_input
+    return end_date_picker, start_date_picker
 
 
 @app.cell
-def _(end_date_input, mo, start_date_input):
-    mo.hstack([start_date_input, end_date_input])
+def _(end_date_picker, mo, start_date_picker):
+    mo.hstack([start_date_picker, end_date_picker])
     return
 
 
